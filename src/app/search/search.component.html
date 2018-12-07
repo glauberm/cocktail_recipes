@@ -1,9 +1,0 @@
-<div id="search-component">
-  <input id="search-box" #searchBox (input)="search(searchBox.value)" />
-
-  <ul *ngIf="results$ | async as result">
-    <li *ngFor="let drink of result.drinks" >
-      {{ drink.strDrink }}
-    </li>
-  </ul>
-</div>

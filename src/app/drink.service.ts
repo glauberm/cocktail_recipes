@@ -6,18 +6,27 @@ import { catchError, retry } from 'rxjs/operators';
 import { Drink } from './drink';
 
 @Injectable()
+
 export class DrinkService
 {
-  private searchUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php'          
+  private url = 'https://www.thecocktaildb.com/api/json/v1/1/';
   
   constructor(
     private http: HttpClient
   ) {}
   
-  public searchDrinks(query: string): Observable<Drink[]> {
-    if (!query.trim()) return of([]);
+  public searchDrinks(name: string): Observable<Drink> {
+    if (!name.trim()) return of();
 
-    return this.http.get<Drink[]>(`${this.searchUrl}?s=${query}`)
+    return this.http.get<Drink>(`${this.url}search.php?s=${name}`)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
+  public getDrink (id: number): Observable<Drink> {
+    return this.http.get<Drink>(`${this.url}lookup.php?i=${id}`)
       .pipe(
         retry(3),
         catchError(this.handleError)

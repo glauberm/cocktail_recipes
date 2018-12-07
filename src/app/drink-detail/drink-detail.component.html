@@ -1,0 +1,7 @@
+<div *ngIf="drink as result">
+  <div *ngFor="let d of result.drinks">
+    <h2>{{ d.strDrink }}</h2>
+    <button (click)="goBack()">Close</button>
+  </div>
+</div>
+
