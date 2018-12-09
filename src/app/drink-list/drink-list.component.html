@@ -1,7 +1,7 @@
 <ul class="drink-list">
   <li class="drink-list__item" *ngFor="let drink of drinks"
     [ngStyle]="{'background-image': 'url(' + drink.strDrinkThumb + ')'}">
-    <div class="drink-list__inner" tabindex="0"
+    <button class="drink-list__button"
       (click)="toggleVisibility(preview)">
       <img class="drink-list__image" src="{{ drink.strDrinkThumb }}"
         alt="" />
@@ -18,6 +18,6 @@
           </a>
         </p>
       </div>
-    </div>
+    </button>
   </li>
 </ul>

@@ -27,22 +27,28 @@
     }
   }
 
-  &__inner {
+  &__button {
     padding: 0.8em;
     color: $orange;
     text-decoration: none;
     background-color: rgba($white, 0.9);
-    transition: background-color 0.3s ease;
+    border: 0 none;
+    width: 100%;
+    border-radius: 0.4em;
+    box-shadow: 0 0 1px 1px $gray inset;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 
     &:hover,
     &:focus {
       outline: 0;
-      background-color: rgba($white, 0.85);
+      box-shadow: 0 0 1px 1px $yellow inset;
+      background-color: rgba($white, 0.8);
     }
 
     &:active {
-      background-color: rgba($white, 0.8);
+      box-shadow: 0 0 1px 1px $blue inset;
+      background-color: rgba($white, 0.7);
     }
   }
 
@@ -77,10 +83,15 @@
 
   &__preview {
     position: relative;
-    visibility: hidden;
+    visibility: collapse;
     opacity: 0;
     line-height: 0;
-    transition: margin-top 0.3s ease, opacity 0.3s ease, line-height 0.3s ease;
+    transition:
+      margin-top 0.3s ease,
+      opacity 0.3s ease,
+      line-height 0.3s ease,
+      visibility 0.3s ease
+    ;
 
     &--active {
       visibility: visible;
