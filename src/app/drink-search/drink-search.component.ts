@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Drink } from '../drink';
 import { DrinkService } from '../drink.service';
 
 @Component({
@@ -12,15 +12,16 @@ import { DrinkService } from '../drink.service';
 
 export class DrinkSearchComponent implements OnInit
 {
-  public results$: Observable<Drink>;
+  public searchForm = new FormGroup({ searchInput: new FormControl('') });
+  public results$: Observable<string>;
   private searchTerms = new Subject<string>();
   
   constructor(
     private drinkService: DrinkService
   ) {}
 
-  public search(param: string): void {
-    this.searchTerms.next(param);
+  public search(): void {
+    this.searchTerms.next(this.searchForm.get('searchInput').value);
   }
 
   public ngOnInit(): void {

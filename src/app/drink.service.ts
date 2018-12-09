@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { Drink } from './drink';
+import { retry, catchError, finalize } from 'rxjs/operators';
 
 @Injectable()
 
@@ -15,22 +14,28 @@ export class DrinkService
     private http: HttpClient
   ) {}
   
-  public searchDrinks(name: string): Observable<Drink> {
+  public searchDrinks(name: string): Observable<string> {
     if (!name.trim()) return of();
 
-    return this.http.get<Drink>(`${this.url}search.php?s=${name}`)
+    const waveElement = document.getElementById('wave')
+    waveElement.classList.add('header__wave--loading');
+
+    return this.http.get<string>(`${this.url}search.php?s=${name}`)
       .pipe(
         retry(3),
-        catchError(this.handleError)
-      );
+        catchError(this.handleError),
+        finalize(() => waveElement.classList.remove('header__wave--loading')));
   }
 
-  public getDrink (id: number): Observable<Drink> {
-    return this.http.get<Drink>(`${this.url}lookup.php?i=${id}`)
+  public getDrink (id: number): Observable<string> {
+    const waveElement = document.getElementById('wave')
+    waveElement.classList.add('header__wave--loading');
+
+    return this.http.get<string>(`${this.url}lookup.php?i=${id}`)
       .pipe(
         retry(3),
-        catchError(this.handleError)
-      );
+        catchError(this.handleError),
+        finalize(() => waveElement.classList.remove('header__wave--loading')));
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -1,13 +1,44 @@
-<div id="search-component">
-  <input id="search-box" #searchBox (input)="search(searchBox.value)" />
+<div class="drink-search">
+  <div class="drink-search__form">
+    <div class="drink-search__form-inner">
+      <div class="drink-search__form-core">
+        <form [formGroup]="searchForm" (submit)="search()">
+          <input type="search" class="drink-search__input"
+            placeholder="E.g.: Margarita"
+            formControlName="searchInput"
+            (input)="search()"
+            />
+          <button type="submit" class="drink-search__button">
+            <img src="../assets/images/search.svg" alt="Search" />
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-  <ul *ngIf="results$ | async as result">
-    <li *ngFor="let drink of result.drinks">
-      <a routerLink="/drink/{{ drink.idDrink }}">
-        <img style="width: 64px; height: 64px;" src="{{ drink.strDrinkThumb }}" alt="{{ drink.strDrink }}" />
-        <h3>{{ drink.strDrink }}</h3>
-        <p>{{ drink.strInstructions }}</p>
-      </a>
-    </li>
-  </ul>
+  <div class="drink-search__result">
+    <div *ngIf="results$ | async as result; else empty">
+      <div *ngIf="result.drinks as d; else notFound">
+        <app-drink-list [drinks]="d"></app-drink-list>
+      </div>
+    </div>
+
+    <ng-template #empty>
+      <div class="drink-search__message">
+        <div class="drink-search__symbol">
+          <img class="drink-search__image drink-search__image-cocktail" src="../assets/images/cocktail.svg" alt="" />
+        </div>
+        <p>Search for a cocktail in the field above.</p>
+      </div>
+    </ng-template>
+
+    <ng-template #notFound>
+      <div class="drink-search__message">
+        <div class="drink-search__symbol">
+          <img class="drink-search__image" src="../assets/images/question-mark.svg" alt="" />
+        </div>
+        <p>Nothing found. Try another cocktail.</p>
+      </div>
+    </ng-template>
+  </div>
 </div>

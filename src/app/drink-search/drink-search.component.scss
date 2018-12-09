@@ -1,0 +1,94 @@
+@import '../../variables';
+
+.drink-search {
+  margin: 0 1em;
+
+  &__form {
+    position: relative;
+    height: 3em;
+  }
+
+  &__form-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__form-core {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px;
+    border-radius: 0.2em;
+    box-shadow: 0 4px 12px rgba($black ,0.25);
+  }
+
+  &__input {
+    background-color: $white;
+    color: $black;
+    padding: 0.6em calc(0.8em + 64px) 0.6em 0.8em;
+    width: 100%;
+    display: block;
+    border: 0 none;
+    border-radius: 0.2em;
+    transition: box-shadow 0.3s ease;
+
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0 1px $yellow inset;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    height: 100%;
+    right: 0;
+    width: 64px;
+    background-color: $yellow;
+    color: $orange;
+    padding: 0.6em 0.8em;
+    border: 0 none;
+    border-radius: 0 0.2em 0.2em 0;
+    cursor: pointer;
+  }
+
+  &__result {
+    position: relative;
+    top: calc(48px + 3em);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__message {
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    color: $orange;
+  }
+
+  &__symbol {
+    width: 8em;
+    height: 8em;
+    padding: 1em;
+    border: 6px solid lighten($yellow, 20%);
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 4em;
+  }
+
+  &__image-cocktail {
+    position: relative;
+    left: 0.25em;
+  }
+}

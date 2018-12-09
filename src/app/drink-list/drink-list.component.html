@@ -1,0 +1,23 @@
+<ul class="drink-list">
+  <li class="drink-list__item" *ngFor="let drink of drinks"
+    [ngStyle]="{'background-image': 'url(' + drink.strDrinkThumb + ')'}">
+    <div class="drink-list__inner" tabindex="0"
+      (click)="toggleVisibility(preview)">
+      <img class="drink-list__image" src="{{ drink.strDrinkThumb }}"
+        alt="" />
+      <div class="drink-list__content">
+        <div class="drink-list__title">
+          <h4 class="drink-list__heading">{{ drink.strDrink }}</h4>
+        </div>
+      </div>
+      <div class="drink-list__preview" #preview>
+        <p class="drink-list__text">{{ drink.strInstructions }}
+          <a class="drink-list__link" routerLink="/drink/{{ drink.idDrink }}"
+            (click)="$event.stopPropagation();">
+            Show details
+          </a>
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>

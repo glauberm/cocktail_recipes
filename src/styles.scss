@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/normalize.css/normalize';
+@import './variables';
+
+@font-face {
+  font-family: 'Lobster';
+  src: url('./assets/fonts/lobstertwo-bolditalic-webfont.woff2') format('woff2'),
+       url('./assets/fonts/lobstertwo-bolditalic-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('./assets/fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+       url('./assets/fonts/sourcesanspro-regular-webfont.woff') format('woff');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('./assets/fonts/sourcesanspro-bold-webfont.woff2') format('woff2'),
+       url('./assets/fonts/sourcesanspro-bold-webfont.woff') format('woff');
+  font-weight: bold;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: $white;
+  color: $black;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

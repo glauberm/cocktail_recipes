@@ -1,0 +1,47 @@
+@import '../../variables';
+
+.header {
+  background: $purple;
+  background: linear-gradient(45deg, $orange 0%, $purple 100%);
+  position: relative;
+  padding-bottom: calc(48px + 1em);
+
+  &__inner {
+    padding: 1.5em 1em 4em;
+    text-align: center;
+  }
+
+  &__heading {
+    margin: 0 0 0.75em;
+    line-height: 1.25;
+    color: $yellow;
+    text-shadow: 0 2px 5px rgba($black ,0.35);
+    font-family: 'Lobster';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2.15em;
+  }
+
+  &__wave {
+    background: url('../../assets/images/curve.svg') 0 0 repeat-x scroll transparent;
+    position: absolute;
+    bottom: 0;
+    height: 48px;
+    width: 100%;
+    animation: wave 1s linear infinite;
+    animation-play-state: paused;
+
+    &--loading {
+      animation-play-state: running;
+    }
+  }
+}
+
+@keyframes wave {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 512px;
+  }
+}

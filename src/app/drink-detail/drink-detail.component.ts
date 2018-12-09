@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DrinkService }  from '../drink.service';
-import { Drink } from '../drink';
 
 @Component({
   selector: 'app-drink-detail',
@@ -12,7 +11,7 @@ import { Drink } from '../drink';
 
 export class DrinkDetailComponent implements OnInit
 {
-  @Input() drink: Drink;
+  @Input() drink: string;
  
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +21,23 @@ export class DrinkDetailComponent implements OnInit
 
   public getDrink(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+
     this.drinkService.getDrink(id).subscribe((drink) => this.drink = drink);
+  }
+
+  public getIngredients(drink: string): Array<string> {
+    let ingredients = [];
+
+    for (let i = 1; i <= 15; i++) {
+      if(drink['strIngredient'+i].length && drink['strMeasure'+i].length) {
+        ingredients = ingredients.concat({
+          ingredient: drink['strIngredient'+i],
+          measure: drink['strMeasure'+i]
+        });
+      }
+    }
+
+    return ingredients;
   }
 
   public goBack(): void {
