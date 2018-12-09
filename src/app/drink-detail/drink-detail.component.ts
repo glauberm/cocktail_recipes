@@ -29,7 +29,10 @@ export class DrinkDetailComponent implements OnInit
     let ingredients = [];
 
     for (let i = 1; i <= 15; i++) {
-      if(drink['strIngredient'+i].length && drink['strMeasure'+i].length) {
+      if(drink['strIngredient'+i]
+        && drink['strMeasure'+i]
+        && drink['strIngredient'+i].length
+        && drink['strMeasure'+i].length) {
         ingredients = ingredients.concat({
           ingredient: drink['strIngredient'+i],
           measure: drink['strMeasure'+i]

@@ -39,7 +39,7 @@
 
   &__heading,
   &__subheading {
-    color: $purple;
+    color: $blue;
     line-height: 1.25;
     font-family: 'Lobster';
     font-weight: bold;
@@ -102,7 +102,7 @@
     }
 
     &:active {
-      background-color: $purple;
+      background-color: $blue;
     }
   }
 }

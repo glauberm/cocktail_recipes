@@ -38,11 +38,11 @@
     &:hover,
     &:focus {
       outline: 0;
-      background-color: rgba(darken($white, 5%), 0.8);
+      background-color: rgba($white, 0.85);
     }
 
     &:active {
-      background-color: rgba(darken($white, 5%), 0.6);
+      background-color: rgba($white, 0.8);
     }
   }
 
@@ -52,6 +52,7 @@
     float: left;
     margin-right: 1em;
     border-radius: 0.2em;
+    background-color: $gray;
   }
 
   &__content {
@@ -71,16 +72,18 @@
     font-family: 'Lobster';
     font-weight: bold;
     font-style: italic;
-    font-size: 1.35em;
+    font-size: 1.45em;
   }
 
   &__preview {
     position: relative;
+    visibility: hidden;
     opacity: 0;
     line-height: 0;
     transition: margin-top 0.3s ease, opacity 0.3s ease, line-height 0.3s ease;
 
     &--active {
+      visibility: visible;
       margin-top: 1em;
       opacity: 1;
       line-height: 1.5;
@@ -104,7 +107,7 @@
     }
 
     &:active {
-      color: $purple;
+      color: $blue;
     }
   }
 }
