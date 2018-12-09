@@ -7,6 +7,10 @@
     position: relative;
     height: 3em;
     font-size: 18px;
+
+    @media (min-width: $mediumViewport) {
+      font-size: 20px;
+    }
   }
 
   &__form-inner {
@@ -36,6 +40,7 @@
 
     &:focus,
     &:active {
+      outline: 0;
       box-shadow: 0 0 0 1px $yellow inset;
     }
   }
@@ -59,11 +64,11 @@
 
     &:hover,
     &:focus {
-      background-color: darken($yellow, 5%);
+      background-color: lighten($yellow, 10%);
     }
 
     &:active {
-      background-color: darken($yellow, 7.5%);
+      background-color: $gray;
     }
   }
 

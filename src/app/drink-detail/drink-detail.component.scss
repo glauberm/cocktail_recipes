@@ -52,6 +52,7 @@
   }
 
   &__subheading {
+    margin: 0 0 0.5em;
     font-size: 1.5em;
   }
 
@@ -65,12 +66,25 @@
   &__list {
     margin: 0 0 1em;
     text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+
+    @media (min-width: $mediumViewport) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
   }
 
   &__sublist {
+    margin: 0 0 1em;
+    text-align: left;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 0.2em;
+    grid-column-gap: 1em;
+
+    @media (min-width: $mediumViewport) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 
   &__title {
@@ -91,7 +105,7 @@
     background-color: $orange;
     border: 0 none;
     border-radius: 0.2em;
-    padding: 0.6em 0.8em;
+    padding: 0.55em 0.8em;
     color: $white;
     cursor: pointer;
     transition: background-color 0.3s ease;

@@ -1,16 +1,17 @@
 @import '../../variables';
 
 .drink-list {
+  $c: &;
   margin: 0;
   padding: 0;
   list-style: none;
 
   &__item {
-    border-radius: 0.4em;
-    background-color: $white;
+    border-radius: 0.5em;
     background-position: center 25%;
     background-size: cover;
-    background-blend-mode: luminosity;
+    background-color: lighten($yellow, 35%);
+    background-blend-mode: screen;
     opacity: 0;
     transform: translateY(1em);
     animation: fade-up 0.3s ease-out;
@@ -28,27 +29,32 @@
   }
 
   &__button {
-    padding: 0.8em;
-    color: $orange;
-    text-decoration: none;
-    background-color: rgba($white, 0.9);
+    background-color: transparent;
     border: 0 none;
+    color: $orange;
     width: 100%;
-    border-radius: 0.4em;
-    box-shadow: 0 0 1px 1px $gray inset;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.8em;
+    background-blend-mode: screen;
+    transition:
+      letter-spacing 0.3s ease,
+      background-color 0.3s ease,
+      color 0.3s ease
+    ;
     cursor: pointer;
 
     &:hover,
     &:focus {
       outline: 0;
-      box-shadow: 0 0 1px 1px $yellow inset;
-      background-color: rgba($white, 0.8);
+      letter-spacing: 0.1em;
+      color: $red;
+
+      #{$c}__image {
+        transform: rotate(-5deg);
+      }
     }
 
     &:active {
-      box-shadow: 0 0 1px 1px $blue inset;
-      background-color: rgba($white, 0.7);
+      color: $blue;
     }
   }
 
@@ -58,7 +64,7 @@
     float: left;
     margin-right: 1em;
     border-radius: 0.2em;
-    background-color: $gray;
+    transition: transform 0.3s ease;
   }
 
   &__content {
@@ -86,16 +92,17 @@
     visibility: collapse;
     opacity: 0;
     line-height: 0;
+    padding: 0 0.8em;
     transition:
-      margin-top 0.3s ease,
+      padding-bottom 0.3s ease,
       opacity 0.3s ease,
       line-height 0.3s ease,
       visibility 0.3s ease
     ;
 
     &--active {
+      padding-bottom: 0.8em;
       visibility: visible;
-      margin-top: 1em;
       opacity: 1;
       line-height: 1.5;
     }

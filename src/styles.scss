@@ -38,4 +38,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media (min-width: $mediumViewport) {
+    font-size: 18px;
+  }
 }
