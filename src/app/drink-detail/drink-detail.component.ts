@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { DrinkService }  from '../drink.service';
+import { DrinkService } from '../drink.service';
 
 @Component({
   selector: 'app-drink-detail',
@@ -9,10 +9,8 @@ import { DrinkService }  from '../drink.service';
   styleUrls: ['./drink-detail.component.scss']
 })
 
-export class DrinkDetailComponent implements OnInit
-{
+export class DrinkDetailComponent implements OnInit {
   @Input() drink: string;
- 
   constructor(
     private route: ActivatedRoute,
     private drinkService: DrinkService,
@@ -29,13 +27,13 @@ export class DrinkDetailComponent implements OnInit
     let ingredients = [];
 
     for (let i = 1; i <= 15; i++) {
-      if(drink['strIngredient'+i]
-        && drink['strMeasure'+i]
-        && drink['strIngredient'+i].length
-        && drink['strMeasure'+i].length) {
+      if (drink['strIngredient' + i]
+        && drink['strMeasure' + i]
+        && drink['strIngredient' + i].length
+        && drink['strMeasure' + i].length) {
         ingredients = ingredients.concat({
-          ingredient: drink['strIngredient'+i],
-          measure: drink['strMeasure'+i]
+          ingredient: drink['strIngredient' + i],
+          measure: drink['strMeasure' + i]
         });
       }
     }
@@ -46,7 +44,7 @@ export class DrinkDetailComponent implements OnInit
   public goBack(): void {
     this.location.back();
   }
- 
+
   public ngOnInit(): void {
     this.getDrink();
   }

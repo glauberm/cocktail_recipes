@@ -6,8 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./drink-list.component.scss']
 })
 
-export class DrinkListComponent
-{
+export class DrinkListComponent {
   @Input() drinks: string;
 
   public toggleVisibility(preview: Element): void {

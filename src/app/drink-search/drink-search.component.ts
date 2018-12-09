@@ -10,12 +10,11 @@ import { DrinkService } from '../drink.service';
   styleUrls: ['./drink-search.component.scss']
 })
 
-export class DrinkSearchComponent implements OnInit
-{
+export class DrinkSearchComponent implements OnInit {
   public searchForm = new FormGroup({ searchInput: new FormControl('') });
   public results$: Observable<string>;
   private searchTerms = new Subject<string>();
-  
+
   constructor(
     private drinkService: DrinkService
   ) {}

@@ -6,18 +6,19 @@ import { retry, catchError, finalize } from 'rxjs/operators';
 
 @Injectable()
 
-export class DrinkService
-{
+export class DrinkService {
   private url = 'https://www.thecocktaildb.com/api/json/v1/1/';
-  
+
   constructor(
     private http: HttpClient
   ) {}
-  
-  public searchDrinks(name: string): Observable<string> {
-    if (!name.trim()) return of();
 
-    const waveElement = document.getElementById('wave')
+  public searchDrinks(name: string): Observable<string> {
+    if (!name.trim()) {
+      return of();
+    }
+
+    const waveElement = document.getElementById('wave');
     waveElement.classList.add('header__wave--loading');
 
     return this.http.get<string>(`${this.url}search.php?s=${name}`)
@@ -28,7 +29,7 @@ export class DrinkService
   }
 
   public getDrink (id: number): Observable<string> {
-    const waveElement = document.getElementById('wave')
+    const waveElement = document.getElementById('wave');
     waveElement.classList.add('header__wave--loading');
 
     return this.http.get<string>(`${this.url}lookup.php?i=${id}`)
@@ -53,5 +54,5 @@ export class DrinkService
         'The server didn\'t respond well to your request. '
         + 'Please try again later.');
     }
-  };
+  }
 }
