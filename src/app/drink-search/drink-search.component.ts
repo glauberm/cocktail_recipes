@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { DrinkService } from '../drink.service';
+import { DrinkService } from '../services/drink.service';
+import { Drinks } from '../model/drinks';
 
 @Component({
   selector: 'app-drink-search',
@@ -12,7 +13,7 @@ import { DrinkService } from '../drink.service';
 
 export class DrinkSearchComponent implements OnInit {
   public searchForm = new FormGroup({ searchInput: new FormControl('') });
-  public results$: Observable<string>;
+  public results$: Observable<Drinks>;
   private searchTerms = new Subject<string>();
 
   constructor(
@@ -27,7 +28,8 @@ export class DrinkSearchComponent implements OnInit {
     this.results$ = this.searchTerms.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap((query: string) => this.drinkService.searchDrinks(query)),
+      switchMap((query: string) => this.drinkService
+        .searchDrinks(query, document.getElementById('wave'))),
     );
   }
 }

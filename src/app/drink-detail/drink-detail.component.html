@@ -5,25 +5,37 @@
       <div *ngFor="let d of result.drinks">
 
         <h2 class="drink-detail__heading">{{ d.strDrink }}</h2>
-        <img class="drink-detail__image" src="{{ d.strDrinkThumb }}" alt="" />
-        <dl class="drink-detail__list">
-          <div class="drink-detail__list-group">
-            <dt class="drink-detail__title">Name</dt>
-            <dd class="drink-detail__data">{{ d.strDrink }}</dd>
-          </div>
-          <div class="drink-detail__list-group">
-            <dt class="drink-detail__title">Category</dt>
-            <dd class="drink-detail__data">{{ d.strCategory }}</dd>
-          </div>
-          <div class="drink-detail__list-group">
-            <dt class="drink-detail__title">Glass</dt>
-            <dd class="drink-detail__data">{{ d.strGlass }}</dd>
-          </div>
-          <div class="drink-detail__list-group">
-            <dt class="drink-detail__title">Alcoholic</dt>
-            <dd class="drink-detail__data">{{ d.strAlcoholic }}</dd>
-          </div>
-        </dl>
+        <div class="drink-detail__main">
+          <img class="drink-detail__image" src="{{ d.strDrinkThumb }}" alt="" />
+          <dl class="drink-detail__list">
+            <div class="drink-detail__list-group">
+              <dt class="drink-detail__title">Name</dt>
+              <dd class="drink-detail__data">{{ d.strDrink }}</dd>
+            </div>
+            <div class="drink-detail__list-group">
+              <dt class="drink-detail__title">Category</dt>
+              <dd class="drink-detail__data">{{ d.strCategory }}</dd>
+            </div>
+            <div class="drink-detail__list-group">
+              <dt class="drink-detail__title">
+                <abbr title="International Bartenders Association">IBA</abbr> Category
+              </dt>
+              <dd class="drink-detail__data">{{ d.strIBA ? d.strIBA : 'Unknown' }}</dd>
+            </div>
+            <div class="drink-detail__list-group">
+              <dt class="drink-detail__title">Glass</dt>
+              <dd class="drink-detail__data">{{ d.strGlass }}</dd>
+            </div>
+            <div class="drink-detail__list-group">
+              <dt class="drink-detail__title">Alcoholic</dt>
+              <dd class="drink-detail__data">{{ d.strAlcoholic }}</dd>
+            </div>
+            <div class="drink-detail__list-group">
+              <dt class="drink-detail__title">Last Modified</dt>
+              <dd class="drink-detail__data">{{ d.dateModified }}</dd>
+            </div>
+          </dl>
+        </div>
 
         <h3 class="drink-detail__subheading">Ingredients</h3>
         <dl class="drink-detail__list drink-detail__sublist">

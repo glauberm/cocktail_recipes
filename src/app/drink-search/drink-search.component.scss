@@ -41,7 +41,7 @@
     &:focus,
     &:active {
       outline: 0;
-      box-shadow: 0 0 0 1px $yellow inset;
+      box-shadow: 0 0 0 2px $yellow inset;
     }
   }
 
@@ -90,8 +90,8 @@
     width: 8em;
     height: 8em;
     padding: 1em;
-    border: 6px solid lighten($yellow, 20%);
-    border-radius: 50%;
+    border: 0.3em solid $gray;
+    border-radius: 8em;
     text-align: center;
     margin: 0 auto;
     display: flex;

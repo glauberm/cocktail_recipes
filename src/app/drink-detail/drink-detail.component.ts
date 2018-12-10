@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { DrinkService } from '../drink.service';
+import { DrinkService } from '../services/drink.service';
+import { Drinks } from '../model/drinks';
 
 @Component({
   selector: 'app-drink-detail',
@@ -10,20 +11,21 @@ import { DrinkService } from '../drink.service';
 })
 
 export class DrinkDetailComponent implements OnInit {
-  @Input() drink: string;
+  @Input() drink: Drinks;
   constructor(
     private route: ActivatedRoute,
     private drinkService: DrinkService,
     private location: Location
   ) {}
 
-  public getDrink(): void {
+  public lookupDrink(): void {
     const id = +this.route.snapshot.paramMap.get('id');
 
-    this.drinkService.getDrink(id).subscribe((drink) => this.drink = drink);
+    this.drinkService.lookupDrink(id, document.getElementById('wave'))
+      .subscribe((drink) => this.drink = drink);
   }
 
-  public getIngredients(drink: string): Array<string> {
+  public getIngredients(drink: string): Array<Drinks> {
     let ingredients = [];
 
     for (let i = 1; i <= 15; i++) {
@@ -46,6 +48,6 @@ export class DrinkDetailComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.getDrink();
+    this.lookupDrink();
   }
 }

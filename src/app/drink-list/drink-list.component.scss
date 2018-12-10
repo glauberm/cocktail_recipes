@@ -45,7 +45,7 @@
     &:hover,
     &:focus {
       outline: 0;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.025em;
       color: $red;
 
       #{$c}__image {

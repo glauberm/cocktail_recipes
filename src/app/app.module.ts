@@ -9,7 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DrinkSearchComponent } from './drink-search/drink-search.component';
 import { DrinkListComponent } from './drink-list/drink-list.component';
 import { DrinkDetailComponent } from './drink-detail/drink-detail.component';
-import { DrinkService } from './drink.service';
+import { DrinkService } from './services/drink.service';
 
 @NgModule({
   declarations: [
