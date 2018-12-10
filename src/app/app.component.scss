@@ -1,6 +1,11 @@
+.content {
+  min-height: calc(100vh - 48px);
+}
+
 .main {
   text-align: center;
   position: relative;
   top: calc(-5em - 48px);
   padding-bottom: 4em;
+  z-index: 1;
 }

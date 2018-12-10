@@ -1,4 +1,4 @@
-@import '../../variables';
+@import '../../../variables';
 
 .drink-detail {
   position: fixed;
@@ -72,6 +72,7 @@
 
     @media (min-width: $mediumViewport) {
       max-width: 200px;
+      max-height: 200px;
       float: left;
       margin-right: 1em;
       margin-bottom: 1em;

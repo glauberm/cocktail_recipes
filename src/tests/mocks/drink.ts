@@ -1,4 +1,4 @@
-import { Drink } from '../../app/model/drink';
+import { Drink } from '../../app/models/drink';
 
 export const mockDrink: Drink = {
   "strDrink": "Dark Caipirinha",

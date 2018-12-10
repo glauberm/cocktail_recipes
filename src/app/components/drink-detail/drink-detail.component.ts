@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { DrinkService } from '../services/drink.service';
-import { Drinks } from '../model/drinks';
+import { DrinkService } from '../../services/drink.service';
+import { Drinks } from '../../models/drinks';
 
 @Component({
   selector: 'app-drink-detail',
@@ -15,7 +15,7 @@ export class DrinkDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private drinkService: DrinkService,
-    private location: Location
+    private router: Router
   ) {}
 
   public lookupDrink(): void {
@@ -43,8 +43,8 @@ export class DrinkDetailComponent implements OnInit {
     return ingredients;
   }
 
-  public goBack(): void {
-    this.location.back();
+  public close(): void {
+    this.router.navigate([''], { replaceUrl: true });
   }
 
   public ngOnInit(): void {

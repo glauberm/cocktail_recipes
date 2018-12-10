@@ -4,12 +4,12 @@
       <div class="drink-search__form-core">
         <form [formGroup]="searchForm" (submit)="search()">
           <input type="search" class="drink-search__input"
-            placeholder="E.g.: Margarita"
+            placeholder="E.g.: Caipirinha"
             formControlName="searchInput"
             (input)="search()"
             />
           <button type="submit" class="drink-search__button">
-            <img src="../assets/images/search.svg" alt="Search" />
+            <img src="../../assets/images/search.svg" alt="Search" />
           </button>
         </form>
       </div>
@@ -26,7 +26,7 @@
     <ng-template #empty>
       <div class="drink-search__message">
         <div class="drink-search__symbol">
-          <img class="drink-search__image drink-search__image-cocktail" src="../assets/images/cocktail.svg" alt="" />
+          <img class="drink-search__image drink-search__image-cocktail" src="../../assets/images/cocktail.svg" alt="" />
         </div>
         <p>Search for a cocktail in the field above.</p>
       </div>
@@ -35,7 +35,7 @@
     <ng-template #notFound>
       <div class="drink-search__message">
         <div class="drink-search__symbol">
-          <img class="drink-search__image" src="../assets/images/question-mark.svg" alt="" />
+          <img class="drink-search__image" src="../../assets/images/question-mark.svg" alt="" />
         </div>
         <p>Nothing found. Try another cocktail.</p>
       </div>

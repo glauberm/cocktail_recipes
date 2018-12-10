@@ -1,0 +1,65 @@
+<div class="drink-detail" *ngIf="drink as result">
+  <div class="drink-detail__overlay" (click)="close();">
+    <div class="drink-detail__modal" (click)="$event.stopPropagation();">
+
+      <div *ngIf="result.drinks as drinks; else notFound">
+        <div *ngFor="let d of drinks">
+
+          <h2 class="drink-detail__heading">{{ d.strDrink }}</h2>
+          <div class="drink-detail__main">
+            <img class="drink-detail__image" src="{{ d.strDrinkThumb }}" alt="" />
+            <dl class="drink-detail__list">
+              <div class="drink-detail__list-group">
+                <dt class="drink-detail__title">Name</dt>
+                <dd class="drink-detail__data">{{ d.strDrink }}</dd>
+              </div>
+              <div class="drink-detail__list-group">
+                <dt class="drink-detail__title">Category</dt>
+                <dd class="drink-detail__data">{{ d.strCategory }}</dd>
+              </div>
+              <div class="drink-detail__list-group">
+                <dt class="drink-detail__title">
+                  <abbr title="International Bartenders Association">IBA</abbr> Category
+                </dt>
+                <dd class="drink-detail__data">{{ d.strIBA ? d.strIBA : 'Unknown' }}</dd>
+              </div>
+              <div class="drink-detail__list-group">
+                <dt class="drink-detail__title">Glass</dt>
+                <dd class="drink-detail__data">{{ d.strGlass }}</dd>
+              </div>
+              <div class="drink-detail__list-group">
+                <dt class="drink-detail__title">Alcoholic</dt>
+                <dd class="drink-detail__data">{{ d.strAlcoholic }}</dd>
+              </div>
+              <div class="drink-detail__list-group">
+                <dt class="drink-detail__title">Last Modified</dt>
+                <dd class="drink-detail__data">{{ d.dateModified }}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <h3 class="drink-detail__subheading">Ingredients</h3>
+          <dl class="drink-detail__list drink-detail__sublist">
+            <div class="drink-detail__list-group" *ngFor="let i of getIngredients(d)">
+              <dt class="drink-detail__title">{{ i.ingredient }}</dt>
+              <dd class="drink-detail__data">{{ i.measure }}</dd>
+            </div>
+          </dl>
+
+          <h3 class="drink-detail__subheading">Instructions</h3>
+          <p class="drink-detail__instructions">{{ d.strInstructions }}</p>
+        </div>
+      </div>
+
+      <ng-template #notFound>
+        <h2 class="drink-detail__heading">Not Found</h2>
+        <p>Try searching for another cocktail.</p>
+      </ng-template>
+
+      <button class="drink-detail__button" (click)="close()">
+        Close
+      </button>
+
+    </div>
+  </div>
+</div>

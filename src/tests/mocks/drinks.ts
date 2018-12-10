@@ -1,4 +1,4 @@
-import { Drinks } from '../../app/model/drinks';
+import { Drinks } from '../../app/models/drinks';
 import { mockDrink } from './drink';
 
 export const mockDrinks: Drinks = {

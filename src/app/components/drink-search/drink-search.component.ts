@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { DrinkService } from '../services/drink.service';
-import { Drinks } from '../model/drinks';
+import { DrinkService } from '../../services/drink.service';
+import { Drinks } from '../../models/drinks';
 
 @Component({
   selector: 'app-drink-search',
