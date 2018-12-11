@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { DrinkSearchComponent } from './drink-search.component';
 import { DrinkService } from '../drink.service';
@@ -15,17 +14,16 @@ describe('DrinkSearchComponent', () => {
   beforeEach(async(() => {
     drinkService = jasmine.createSpyObj('DrinkService', ['searchDrinks']);
     searchDrinksSpy = drinkService.searchDrinks.and.returnValue(of(mockDrinks));
+    drinkService.searchDrinks();
 
     TestBed.configureTestingModule({
       imports: [
-        AppModule, RouterTestingModule.withRoutes([])
+        AppModule
       ],
       providers: [
         { provide: DrinkService, useValue: drinkService }
       ]
     })
-    .compileComponents();
-    
   }));
 
   beforeEach(() => {
@@ -45,16 +43,21 @@ describe('DrinkSearchComponent', () => {
   });
 
 
-  it('should call heroService', async(() => {
-    console.log(searchDrinksSpy);
-
+  it('should call drinkService', async(() => {
     expect(searchDrinksSpy.calls.any()).toBe(true);
   }));
 
 
   it('should display mock drink', async(() => {
-    expect(fixture.nativeElement.querySelectorAll('.drink-list__item').length)
-      .toBe(1);
+    fixture.nativeElement.querySelector('#search')
+      .dispatchEvent(new Event('input'));
+
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      console.log(fixture.nativeElement);
+      expect(fixture.nativeElement.querySelectorAll('.drink-list__item').length)
+        .toBe(1);
+    });
   }));
 
 });
