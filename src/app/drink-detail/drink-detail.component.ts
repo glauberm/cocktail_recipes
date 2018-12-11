@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { DrinkService } from '../../services/drink.service';
-import { Drinks } from '../../models/drinks';
+import { DrinkService } from '../drink.service';
+import { Drinks } from '../models/drinks';
 
 @Component({
   selector: 'app-drink-detail',
@@ -14,8 +13,8 @@ export class DrinkDetailComponent implements OnInit {
   @Input() drink: Drinks;
   constructor(
     private route: ActivatedRoute,
-    private drinkService: DrinkService,
-    private router: Router
+    private router: Router,
+    private drinkService: DrinkService
   ) {}
 
   public lookupDrink(): void {

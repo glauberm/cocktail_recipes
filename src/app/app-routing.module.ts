@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DrinkDetailComponent } from './components/drink-detail/drink-detail.component';
+import { DrinkDetailComponent } from './drink-detail/drink-detail.component';
 
 const routes: Routes = [
   { path: 'drink/:id', component: DrinkDetailComponent },

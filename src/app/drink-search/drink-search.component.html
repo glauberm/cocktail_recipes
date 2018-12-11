@@ -3,7 +3,7 @@
     <div class="drink-search__form-inner">
       <div class="drink-search__form-core">
         <form [formGroup]="searchForm" (submit)="search()">
-          <input type="search" class="drink-search__input"
+          <input id="search" type="search" class="drink-search__input"
             placeholder="E.g.: Caipirinha"
             formControlName="searchInput"
             (input)="search()"
@@ -16,24 +16,24 @@
     </div>
   </div>
 
-  <div class="drink-search__result">
+  <div class="drink-search__result" id="result">
     <div *ngIf="results$ | async as result; else empty">
-      <div *ngIf="result.drinks as d; else notFound">
+      <div *ngIf="result.drinks as d; else notFound" id="drinks">
         <app-drink-list [drinks]="d"></app-drink-list>
       </div>
     </div>
 
     <ng-template #empty>
-      <div class="drink-search__message">
+      <div class="drink-search__message" id="message-empty">
         <div class="drink-search__symbol">
           <img class="drink-search__image drink-search__image-cocktail" src="../../assets/images/cocktail.svg" alt="" />
         </div>
-        <p>Search for a cocktail in the field above.</p>
+        <p class="drink-search__message-text">Search for a cocktail in the field above.</p>
       </div>
     </ng-template>
 
     <ng-template #notFound>
-      <div class="drink-search__message">
+      <div class="drink-search__message" id="message-notFound">
         <div class="drink-search__symbol">
           <img class="drink-search__image" src="../../assets/images/question-mark.svg" alt="" />
         </div>

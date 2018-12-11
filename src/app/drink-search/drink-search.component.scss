@@ -1,4 +1,4 @@
-@import '../../../variables';
+@import '../../variables';
 
 .drink-search {
   margin: 0 1em;
@@ -42,6 +42,10 @@
     &:active {
       outline: 0;
       box-shadow: 0 0 0 2px $yellow inset;
+    }
+
+    &::placeholder {
+      color: $grayDark;
     }
   }
 

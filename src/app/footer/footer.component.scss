@@ -1,0 +1,25 @@
+@import '../../variables';
+
+.footer {
+  font-size: 0.8em;
+  color: $grayDark;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__link {
+    color: $grayDark;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      color: $orange;
+    }
+
+    &:active {
+      color: $blue;
+    }
+  }
+}
