@@ -1,4 +1,5 @@
 export class Drink {
+  "idDrink": string;
   "strDrink": string;
   "strCategory": string;
   "strIBA": string;

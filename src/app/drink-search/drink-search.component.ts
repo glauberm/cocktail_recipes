@@ -24,6 +24,12 @@ export class DrinkSearchComponent implements OnInit {
     this.searchTerms.next(this.searchForm.get('searchInput').value);
   }
 
+  public toggleVisibility(preview: Element): void {
+    preview.classList.contains('drink-list__preview--active')
+      ? preview.classList.remove('drink-list__preview--active')
+      : preview.classList.add('drink-list__preview--active');
+  }
+
   public ngOnInit(): void {
     this.results$ = this.searchTerms.pipe(
       debounceTime(300),

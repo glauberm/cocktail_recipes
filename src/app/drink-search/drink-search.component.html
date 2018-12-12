@@ -18,9 +18,28 @@
 
   <div class="drink-search__result" id="result">
     <div *ngIf="results$ | async as result; else empty">
-      <div *ngIf="result.drinks as d; else notFound" id="drinks">
-        <app-drink-list [drinks]="d"></app-drink-list>
-      </div>
+      <ul class="drink-list" *ngIf="result.drinks as drinks; else notFound">
+        <li class="drink-list__item" *ngFor="let drink of drinks"
+          [ngStyle]="{'background-image': 'url(' + drink.strDrinkThumb + ')'}">
+          <button href="#" class="drink-list__button"
+            (click)="toggleVisibility(preview)">
+            <img class="drink-list__image" src="{{ drink.strDrinkThumb }}"
+              alt="" />
+            <div class="drink-list__content">
+              <div class="drink-list__title">
+                <h4 class="drink-list__heading">{{ drink.strDrink }}</h4>
+              </div>
+            </div>
+          </button>
+          <div class="drink-list__preview" #preview>
+            <p class="drink-list__text">{{ drink.strInstructions }}
+              <a class="drink-list__link" routerLink="/drink/{{ drink.idDrink }}">
+                Show details
+              </a>
+            </p>
+          </div>
+        </li>
+      </ul>
     </div>
 
     <ng-template #empty>

@@ -24,14 +24,15 @@ export class DrinkDetailComponent implements OnInit {
       .subscribe((drink) => this.drink = drink);
   }
 
+  public close(): void {
+    this.router.navigate([''], { replaceUrl: true });
+  }
+
   public getIngredients(drink: string): Array<Drinks> {
     let ingredients = [];
 
     for (let i = 1; i <= 15; i++) {
-      if (drink['strIngredient' + i]
-        && drink['strMeasure' + i]
-        && drink['strIngredient' + i].length
-        && drink['strMeasure' + i].length) {
+      if (drink['strIngredient' + i] && drink['strMeasure' + i]) {
         ingredients = ingredients.concat({
           ingredient: drink['strIngredient' + i],
           measure: drink['strMeasure' + i]
@@ -40,10 +41,6 @@ export class DrinkDetailComponent implements OnInit {
     }
 
     return ingredients;
-  }
-
-  public close(): void {
-    this.router.navigate([''], { replaceUrl: true });
   }
 
   public ngOnInit(): void {

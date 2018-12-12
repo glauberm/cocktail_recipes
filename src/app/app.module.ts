@@ -7,9 +7,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DrinkSearchComponent } from './drink-search/drink-search.component';
-import { DrinkListComponent } from './drink-list/drink-list.component';
 import { DrinkDetailComponent } from './drink-detail/drink-detail.component';
 import { DrinkService } from './drink.service';
+import { RouterLinkDirectiveStub } from './drink-search/router-link-directive.stub';
 
 @NgModule({
   declarations: [
@@ -17,8 +17,8 @@ import { DrinkService } from './drink.service';
     HeaderComponent,
     FooterComponent,
     DrinkSearchComponent,
-    DrinkListComponent,
     DrinkDetailComponent,
+    RouterLinkDirectiveStub
   ],
   imports: [
     BrowserModule,

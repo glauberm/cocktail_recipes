@@ -20,12 +20,12 @@ describe('HeaderComponent', () => {
   });
 
   it('should display "Cocktail Recipes" as headline', () => {
-    expect(fixture.nativeElement.querySelector('#heading').textContent)
+    expect(fixture.nativeElement.querySelector('.header__heading').textContent)
       .toEqual('Cocktail Recipes');
   });
 
   it('should display wave element', () => {
-    expect(fixture.nativeElement.querySelector('#wave')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.header__wave')).toBeTruthy();
   });
 
 });

@@ -6,3 +6,7 @@ export const mockDrinks: Drinks = {
     mockDrink,
   ]
 };
+
+export const mockEmptyDrinks: Drinks = {
+  "drinks": null
+};
