@@ -7,7 +7,8 @@
 
           <h2 class="drink-detail__heading">{{ d.strDrink }}</h2>
           <div class="drink-detail__main">
-            <img class="drink-detail__image" src="{{ d.strDrinkThumb }}" alt="" />
+            <img class="drink-detail__image" src="{{ d.strDrinkThumb }}"
+              alt="" />
             <dl class="drink-detail__list">
               <div class="drink-detail__list-group">
                 <dt class="drink-detail__title">Name</dt>
@@ -19,9 +20,12 @@
               </div>
               <div class="drink-detail__list-group">
                 <dt class="drink-detail__title">
-                  <abbr title="International Bartenders Association">IBA</abbr> Category
+                  <abbr title="International Bartenders Association">
+                    IBA</abbr> Category
                 </dt>
-                <dd class="drink-detail__data">{{ d.strIBA ? d.strIBA : 'Unknown' }}</dd>
+                <dd class="drink-detail__data">
+                  {{ d.strIBA ? d.strIBA : 'Unknown' }}
+                </dd>
               </div>
               <div class="drink-detail__list-group">
                 <dt class="drink-detail__title">Glass</dt>
@@ -38,16 +42,23 @@
             </dl>
           </div>
 
-          <h3 class="drink-detail__subheading">Ingredients</h3>
-          <dl class="drink-detail__sublist">
-            <div class="drink-detail__sublist-group" *ngFor="let i of getIngredients(d)">
-              <dt class="drink-detail__title">{{ i.ingredient }}</dt>
-              <dd class="drink-detail__data">{{ i.measure }}</dd>
+          <div class="drink-detail__aside">
+            <div>
+              <h3 class="drink-detail__subheading">Ingredients</h3>
+              <dl class="drink-detail__sublist">
+                <div class="drink-detail__sublist-group"
+                  *ngFor="let i of getIngredients(d)">
+                  <dt class="drink-detail__title">{{ i.ingredient }}</dt>
+                  <dd class="drink-detail__data">{{ i.measure }}</dd>
+                </div>
+              </dl>
             </div>
-          </dl>
-
-          <h3 class="drink-detail__subheading">Instructions</h3>
-          <p class="drink-detail__instructions">{{ d.strInstructions }}</p>
+            <div>
+              <h3 class="drink-detail__subheading">Instructions</h3>
+              <p class="drink-detail__instructions">{{ d.strInstructions }}</p>
+            </div>
+          </div>
+          
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .drink-search {
   margin: 0 1em;
@@ -23,7 +24,7 @@
   &__form-core {
     position: relative;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: $max-width;
     border-radius: 0.2em;
     box-shadow: 0 4px 12px rgba($black ,0.25);
   }
@@ -50,10 +51,8 @@
   }
 
   &__button {
+    @include flex-center();
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     top: 0;
     height: 100%;
     right: 0;
@@ -79,7 +78,7 @@
   &__result {
     position: relative;
     top: calc(48px + 3em);
-    max-width: 800px;
+    max-width: $max-width;
     margin: 0 auto;
   }
 
@@ -91,6 +90,7 @@
   }
 
   &__symbol {
+    @include flex-center();
     width: 8em;
     height: 8em;
     padding: 1em;
@@ -98,9 +98,6 @@
     border-radius: 8em;
     text-align: center;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   &__image {
@@ -191,12 +188,10 @@
   }
 
   &__heading {
+    @include heading();
     margin: 0;
     line-height: 1.25;
     text-shadow: 0 0 20px $white;
-    font-family: 'Lobster';
-    font-weight: bold;
-    font-style: italic;
     font-size: 1.45em;
   }
 

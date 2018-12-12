@@ -1,0 +1,10 @@
+@mixin heading() {
+  font-family: 'Lobster';
+  font-weight: bold;
+  font-style: italic;
+}
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

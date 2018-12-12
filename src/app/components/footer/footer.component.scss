@@ -1,12 +1,11 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .footer {
+  @include flex-center();
   font-size: 0.8em;
   color: $grayDark;
   height: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &__link {
     color: $grayDark;
