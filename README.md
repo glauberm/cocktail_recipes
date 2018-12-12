@@ -7,7 +7,7 @@ An Angular (7.1.1) app that searchs for recipes from the [TheCocktailDB](https:/
 Clone the repository and then install the dependencies:
 
 ```[bash]
-npm install && npm start
+npm install
 ```
 
 ## Running development server
