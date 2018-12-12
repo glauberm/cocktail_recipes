@@ -1,5 +1,5 @@
-import { Drinks } from '../../app/models/drinks';
-import { mockDrink } from './drink';
+import { Drinks } from '../app/models/drinks';
+import { mockDrink } from './drink.mock';
 
 export const mockDrinks: Drinks = {
   "drinks": [

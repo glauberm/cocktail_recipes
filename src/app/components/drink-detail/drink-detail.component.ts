@@ -1,14 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { DrinkService } from '../drink.service';
-import { Drinks } from '../models/drinks';
+import { DrinkService } from '../../services/drink.service';
+import { Drinks } from '../../models/drinks';
 
 @Component({
   selector: 'app-drink-detail',
   templateUrl: './drink-detail.component.html',
   styleUrls: ['./drink-detail.component.scss']
 })
-
 export class DrinkDetailComponent implements OnInit {
   @Input() drink: Drinks;
   constructor(

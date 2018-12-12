@@ -1,12 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
+import { AppModule } from '../../app.module';
 import { DrinkSearchComponent } from './drink-search.component';
-import { DrinkDetailComponent } from '../drink-detail/drink-detail.component';
-import { DrinkService } from '../drink.service';
-import { AppModule } from '../app.module';
-import { mockDrinks } from '../mocks/drinks';
-import { RouterLinkDirectiveStub } from './router-link-directive.stub';
+import { DrinkService } from '../../services/drink.service';
+import { mockDrinks } from '../../../testing/drinks.mock';
+import { RouterLinkDirectiveStub } from '../../../testing/router-link-directive.stub';
 
 describe('DrinkSearchComponent', () => {
   let component: DrinkSearchComponent;

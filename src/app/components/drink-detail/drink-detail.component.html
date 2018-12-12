@@ -39,8 +39,8 @@
           </div>
 
           <h3 class="drink-detail__subheading">Ingredients</h3>
-          <dl class="drink-detail__list drink-detail__sublist">
-            <div class="drink-detail__list-group" *ngFor="let i of getIngredients(d)">
+          <dl class="drink-detail__sublist">
+            <div class="drink-detail__sublist-group" *ngFor="let i of getIngredients(d)">
               <dt class="drink-detail__title">{{ i.ingredient }}</dt>
               <dd class="drink-detail__data">{{ i.measure }}</dd>
             </div>

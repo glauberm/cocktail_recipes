@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
+import { AppModule } from '../../app.module';
 import { DrinkDetailComponent } from './drink-detail.component';
-import { DrinkService } from '../drink.service';
-import { AppModule } from '../app.module';
-import { mockDrinks, mockEmptyDrinks } from '../mocks/drinks';
-import { ActivatedRouteStub } from './activated-route.stub';
+import { DrinkService } from '../../services/drink.service';
+import { mockDrinks, mockEmptyDrinks } from '../../../testing/drinks.mock';
+import { ActivatedRouteStub } from '../../../testing/activated-route.stub';
 
 describe('DrinkDetailComponent', () => {
   let component: DrinkDetailComponent;
@@ -46,7 +46,7 @@ describe('DrinkDetailComponent', () => {
 
     it('should display 3 ingredients', () => {
       expect(fixture.nativeElement
-        .querySelectorAll('.drink-detail__sublist .drink-detail__list-group')
+        .querySelectorAll('.drink-detail__sublist-group')
         .length).toBe(3);
     });
   });

@@ -1,4 +1,4 @@
-@import '../../variables';
+@import '../../styles/variables';
 
 .header {
   background: $blue;
@@ -28,7 +28,7 @@
   }
 
   &__wave {
-    background: url('../../assets/images/curve.svg') 0 0 repeat-x scroll transparent;
+    background: url('../../../assets/images/curve.svg') 0 0 repeat-x scroll transparent;
     position: absolute;
     bottom: 0;
     right: 0;

@@ -1,4 +1,4 @@
-import { Drink } from '../../app/models/drink';
+import { Drink } from '../app/models/drink';
 
 export const mockDrink: Drink = {
   "idDrink":	"17177",
