@@ -58,7 +58,7 @@ describe('DrinkService', () => {
     });
 
 
-    it('should return expected mock drinks and no drinks', () => {
+    it('should return mock drinks (2 requests)', () => {
       drinkService.searchDrinks(testTerm, null).subscribe();
       drinkService.searchDrinks(testTerm, null).subscribe(
         (drink) => { expect(drink)
@@ -70,18 +70,6 @@ describe('DrinkService', () => {
 
       requests[0].flush([]);
       requests[1].flush(mockDrinks);
-    });
-
-
-    it('should turn 404 into a user-friendly error', () => {
-      const msg = 'Deliberate 404';
-      
-      drinkService.searchDrinks(testTerm, null).subscribe(
-        (drink) => { fail('Expected to fail.') },
-        (error) => { expect(error.error).toContain(msg) });
-
-      const req = httpTestingController.expectOne(searchUrl);
-      req.flush(msg, {status: 404, statusText: 'Not Found'});
     });
 
   });
@@ -122,7 +110,7 @@ describe('DrinkService', () => {
     });
 
 
-    it('should return expected mock drink and no drink', () => {
+    it('should return mock drink (2 requests)', () => {
       drinkService.lookupDrink(testId, null).subscribe();
       drinkService.lookupDrink(testId, null).subscribe(
         (drink) => { expect(drink)
@@ -134,18 +122,6 @@ describe('DrinkService', () => {
 
       requests[0].flush([]);
       requests[1].flush(mockDrinks);
-    });
-
-
-    it('should turn 404 into a user-friendly error', () => {
-      const msg = 'Deliberate 404';
-      
-      drinkService.lookupDrink(testId, null).subscribe(
-        (drink) => { fail('Expected to fail.') },
-        (error) => { expect(error.error).toContain(msg) });
-
-      const req = httpTestingController.expectOne(lookupUrl);
-      req.flush(msg, {status: 404, statusText: 'Not Found'});
     });
 
   });

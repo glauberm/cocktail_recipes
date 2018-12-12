@@ -74,8 +74,6 @@ describe('DrinkDetailComponent', () => {
     sharedTests();
   
     it('should display Not Found', () => {
-      console.log(fixture.nativeElement);
-
       expect(fixture.nativeElement.querySelector('.drink-detail__heading')
           .textContent)
         .toEqual('Not Found');
